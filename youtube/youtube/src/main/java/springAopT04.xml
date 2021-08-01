@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+">
+	<!-- <context:annotation-config /> -->
+	<aop:aspectj-autoproxy />
+	
+	<!-- this bean is not annotated with @Aspect, so is just a normal bean -->
+	<bean id="loggingAspectInXml" class="com.soonyoong.youtube.AOP.aspect.LoggingAspectInXml" />
+	
+	<!-- to configure for aspect in XML -->
+	<aop:config>
+		<aop:aspect id="loggingAspectInXml" ref="loggingAspectInXml">
+			<aop:pointcut expression="execution(* get*())" id="allGetters"/>	<!-- no need this method inside the bean anymore -->
+			<aop:around method="myAroundAdvice" pointcut-ref="allGetters"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="circle" class="com.soonyoong.youtube.AOP.Circle">
+		<property name="name" value="circle name"></property>
+	</bean>
+	
+	<bean id="triangle" class="com.soonyoong.youtube.AOP.Triangle">
+		<property name="name" value="triangle name"></property>
+	</bean>
+	
+	<bean id="shapeService" class="com.soonyoong.youtube.AOP.ShapeService">
+		<property name="circle" ref="circle"></property>
+		<property name="triangle" ref="triangle"></property>
+	</bean>
+</beans>
