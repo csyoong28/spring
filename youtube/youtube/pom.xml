@@ -52,6 +52,23 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.5.RELEASE</version>
 		</dependency>
+		<!-- this is for spring jdbc module -->		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>4.3.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+		</dependency>
+		<!-- to get DBCP datasource, which is better than the one by spring, because this supports connection pooling -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.1</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt import org.aspectj.lang.annotation.Aspect 
 			For @Aspect -->
 		<dependency>
@@ -85,6 +102,26 @@
 			<artifactId>asm</artifactId>
 			<version>3.3.1</version>
 		</dependency> -->
-
+		<!-- these are for hibernate -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.3.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
+		</dependency>
 	</dependencies>
 </project>

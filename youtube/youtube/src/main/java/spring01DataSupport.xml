@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<context:annotation-config />
+	<context:component-scan base-package="com.soonyoong.youtube.spring.datasupport"></context:component-scan>
+	
+	<!-- this is for Spring JDBC module, to initialize the data source -->
+	<!-- this datasource is just sample, does not have connection pooling, and everytime will need to create new 
+	connection, so is not or production use. so better use other like dbcp datasource that has connection pooling-->
+	<!-- <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/SpringDataSupport"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean> -->
+	
+	<bean id="datasource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/SpringDataSupport"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+		<property name="initialSize" value="2"></property>	<!-- initial pool size of 2 -->
+		<property name="maxTotal" value="5"></property>	<!-- max pool size of 5 -->
+	</bean>
+	
+	<!-- make use of Spring DAO support class, provide datasource to it -->
+	<bean id="jdbcWithDaoSupport" class="com.soonyoong.youtube.spring.datasupport.JdbcWithDaoSupport">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
+	<!-- in normal hibernate, is configure using separated xml file. but in spring, since can configure inside this xml, so can just configure 
+	session factory here -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="datasource"></property>
+		<property name="packagesToScan" value="com.soonyoong.youtube.spring.datasupport"></property>
+		<!-- <property name="annotatedClasses">
+			<list>
+				<value>com.soonyoong.youtube.spring.datasupport.Circle</value>
+			</list>
+		</property> -->
+		<property name="hibernateProperties">
+		 	<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>  
+	            <prop key="hibernate.hbm2ddl.auto">update</prop>  
+	            <prop key="hibernate.show_sql">true</prop>  
+            </props>
+		</property>		
+	</bean>
+	
+</beans>
