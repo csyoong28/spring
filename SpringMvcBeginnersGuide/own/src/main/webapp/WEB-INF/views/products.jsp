@@ -9,6 +9,7 @@
 <title>Products</title>
 </head>
 <body>
+	<%-- remove for using apache tiles
 	<section>
 		<div class="jumbotron">
 			<div class="container">
@@ -16,7 +17,7 @@
 				<p>All the available products in our store</p>
 			</div>
 		</div>
-	</section>
+	</section> --%>
 
 	<section class="container">
 		<div class="row">

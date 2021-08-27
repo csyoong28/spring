@@ -7,6 +7,8 @@
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <title>Products</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script	src="/webstore/resource/js/controllers.js"></script>
 </head>
 <body>
 	<section>
@@ -16,7 +18,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="container">
+	<section class="container" ng-app="cartApp">
 		<div class="row">
 			<div class="col-md-5">
 				<img src="<c:url value="/resource/images/${product.productId}.png">
@@ -36,9 +38,12 @@
 					<strong>Availble units in stock </strong> : ${product.unitsInStock}
 				</p>
 				<h4>${product.unitPrice} USD</h4>
-				<p>
-					<a href="#" class="btn btn-warning btn-large"> <span
+				<p ng-controller="cartCtrl">
+					<a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')"> <span
 						class="glyphicon-shopping-cart glyphicon"></span> Order Now
+					<a href="<spring:url value="/cart" />" class="btn btn-default">
+					  <span class="glyphicon-hand-right glyphicon"></span> View Cart
+					</a>
 					</a> <a href="<spring:url value="/products" />" class="btn btn-default">
 						<span class="glyphicon-hand-left glyphicon"></span> back
 					</a>
