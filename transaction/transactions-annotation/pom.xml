@@ -9,7 +9,7 @@
 	<name>transactions-annotation</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.0.9.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<spring.data.jpa.version>1.8.0.RELEASE</spring.data.jpa.version>
 		<jpa.version>1.0.0.Final</jpa.version>
 		<google.guava.version>14.0.1</google.guava.version>
