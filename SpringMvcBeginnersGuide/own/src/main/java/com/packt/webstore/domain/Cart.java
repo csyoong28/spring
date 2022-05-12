@@ -22,6 +22,11 @@ public class Cart implements Serializable{
 		this.cartId = cartId;
 	}
 	
+	public Cart(String cartId, int intA) {
+        this("aa");
+        this.cartId = cartId;
+    }
+	
 	public String getCartId() {
 		return cartId;
 	}

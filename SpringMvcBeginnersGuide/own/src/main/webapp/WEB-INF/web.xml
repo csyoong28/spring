@@ -7,7 +7,9 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/webcontext/security-context.xml</param-value>
 	</context-param>
-		
+	
+	<!-- ContextLoaderListener is a class that starts Spring container, ContextLoaderListener reads that xml file, finds your classes, instantiates them and wires.
+	All your beans are then placed inside a container. ContextLoaderListener also closes the context (shutting down all the beans if they need some cleanup) on application shutdown -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

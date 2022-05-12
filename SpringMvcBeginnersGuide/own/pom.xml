@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
+  	<!-- start: most basic for spring MVC  -->
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
@@ -22,6 +23,8 @@
   		<version>3.1.0</version>
   		<scope>provided</scope>
   	</dependency>
+  	<!-- end: most basic for spring MVC  -->
+  	
   	<dependency>
   		<groupId>org.springframework.security</groupId>
   		<artifactId>spring-security-config</artifactId>
@@ -104,4 +107,20 @@
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+  <build>
+  	<plugins>
+  		<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8001</port>
+                    <ajpPort>10001</ajpPort>
+                    <!-- <uriEncoding>${project.build.sourceEncoding}</uriEncoding> -->
+                    <ignorePackaging>true</ignorePackaging>
+                </configuration>
+            </plugin>
+  	</plugins>
+  </build>
 </project>

@@ -14,7 +14,7 @@
 	</definition>
 	
 	<definition name="welcome" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
+		<put-attribute name="title" value="Products1" />
 		<put-attribute name="heading" value="Products" />
 		<put-attribute name="tagline" value="Available Products" />
 		<put-attribute name="content" value="/WEB-INF/views/products.jsp" />

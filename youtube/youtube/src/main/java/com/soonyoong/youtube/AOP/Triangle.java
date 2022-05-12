@@ -10,4 +10,12 @@ public class Triangle {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public void setName2(String name) {
+        this.name = name;
+    }
+	
+	public void setName3(String name) {
+        this.name = name;
+    }
 }

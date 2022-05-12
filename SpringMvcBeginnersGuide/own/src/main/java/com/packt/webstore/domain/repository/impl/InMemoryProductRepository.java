@@ -37,9 +37,16 @@ public class InMemoryProductRepository implements ProductRepository{
 		tablet_Nexus.setManufacturer("Google");
 		tablet_Nexus.setUnitsInStock(1000);
 		
+		Product tablet_mi = new Product("xiaomi","gen 5", new BigDecimal(300));
+		tablet_mi.setDescription("xiaomi gen 5 is the lightest 10 inch tablet With a quad-core Qualcomm Snapdragon� S4 Pro processor");
+		tablet_mi.setCategory("Tablet");
+		tablet_mi.setManufacturer("xiaomi");
+		tablet_mi.setUnitsInStock(1000);
+		
 		listOfProducts.add(iphone);
 		listOfProducts.add(laptop_dell);
 		listOfProducts.add(tablet_Nexus);
+		listOfProducts.add(tablet_mi);
 
 	}
 
