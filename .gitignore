@@ -1,2 +1,6 @@
 /SpringMvcBeginnersGuide/own/target
 /springBootQuickStart/target
+/SpringMvcBeginnersGuide/Chapter 2/webstore/target
+*.class
+maven-archiver
+/SpringMvcBeginnersGuide/own/.idea

@@ -8,15 +8,15 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+//import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlTransient;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.packt.webstore.validator.ProductId;
 
-@XmlRootElement 
+//@XmlRootElement
 public class Product implements Serializable{
 	
 	private static final long serialVersionUID = 3678107792576131001L;
@@ -80,7 +80,7 @@ public class Product implements Serializable{
 		return description;
 	}
 
-	@XmlTransient  
+//	@XmlTransient
 	public MultipartFile getProductImage() {
 		return productImage;
 	}
